@@ -1,0 +1,31 @@
+# Build outputs
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+appsettings.Development.json
+appsettings.*.local.json
+secrets.json
+
+*.nupkg
+*.snupkg
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+.DS_Store
+Thumbs.db
