@@ -11,4 +11,9 @@
     <ProjectReference Include="..\Makerlab.Application\Makerlab.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.15" />
+  </ItemGroup>
+
 </Project>
