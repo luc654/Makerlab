@@ -14,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Makerlab.Domain.Tests", "tests\Makerlab.Domain.Tests\Makerlab.Domain.Tests.csproj", "{C919B438-DD51-44A2-8731-0296AC0285D0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9414AB56-D3F9-4247-AD25-8539C0CEBA17}"
+	ProjectSection(SolutionItems) = preProject
+		.env = .env
+		.env-example = .env-example
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C2A83043-6263-4A1C-BE92-9DA1E856F7C3}"
 EndProject
