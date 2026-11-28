@@ -8,7 +8,7 @@ public class MakerLabDBContext :DbContext
 {
     public MakerLabDBContext(DbContextOptions<MakerLabDBContext> options) : base(options) { }
 
-    public DbSet<Apparaat> Apparaats { get; set; }
+    public DbSet<Apparaat> Apparaten { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
