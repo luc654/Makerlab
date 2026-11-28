@@ -18,4 +18,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <AdditionalFiles Include="Components\Pages\Apparaten\Overzicht.razor" />
+  </ItemGroup>
+
 </Project>
