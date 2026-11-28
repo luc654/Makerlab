@@ -19,17 +19,12 @@ namespace Makerlab.Infrastructure.Migrations
                     Naam = table.Column<string>(type: "TEXT", nullable: false),
                     Locatie = table.Column<string>(type: "TEXT", nullable: false),
                     Status = table.Column<int>(type: "INTEGER", nullable: false),
-                    Discriminator = table.Column<string>(type: "TEXT", maxLength: 8, nullable: false)
+                    Discriminator = table.Column<string>(type: "TEXT", maxLength: 21, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Apparaten", x => x.Id);
                 });
-
-            migrationBuilder.InsertData(
-                table: "Apparaten",
-                columns: new[] { "Id", "Discriminator", "Locatie", "Naam", "Status" },
-                values: new object[] { 1, "Snijder", "Werkplaats A", "Lasersnijder 1", 0 });
         }
 
         /// <inheritdoc />

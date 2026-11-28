@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Makerlab.Infrastructure.Migrations
 {
     [DbContext(typeof(MakerLabDBContext))]
-    [Migration("20261128102429_Init")]
+    [Migration("20261128112022_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -27,7 +27,7 @@ namespace Makerlab.Infrastructure.Migrations
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
-                        .HasMaxLength(8)
+                        .HasMaxLength(21)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Locatie")
@@ -50,20 +50,32 @@ namespace Makerlab.Infrastructure.Migrations
                     b.UseTphMappingStrategy();
                 });
 
+            modelBuilder.Entity("Makerlab.Domain.Apparaten.Printer", b =>
+                {
+                    b.HasBaseType("Makerlab.Domain.Apparaten.Apparaat");
+
+                    b.HasDiscriminator().HasValue("Printer");
+                });
+
             modelBuilder.Entity("Makerlab.Domain.Apparaten.Snijder", b =>
                 {
                     b.HasBaseType("Makerlab.Domain.Apparaten.Apparaat");
 
                     b.HasDiscriminator().HasValue("Snijder");
+                });
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Locatie = "Werkplaats A",
-                            Naam = "Lasersnijder 1",
-                            Status = 0
-                        });
+            modelBuilder.Entity("Makerlab.Domain.Apparaten.Soldeerstation", b =>
+                {
+                    b.HasBaseType("Makerlab.Domain.Apparaten.Apparaat");
+
+                    b.HasDiscriminator().HasValue("Soldeerstation");
+                });
+
+            modelBuilder.Entity("Makerlab.Domain.Apparaten.VRSet", b =>
+                {
+                    b.HasBaseType("Makerlab.Domain.Apparaten.Apparaat");
+
+                    b.HasDiscriminator().HasValue("VRSet");
                 });
 #pragma warning restore 612, 618
         }
