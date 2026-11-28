@@ -2,10 +2,19 @@ namespace Makerlab.Domain.Apparaten;
 // https://www.scribd.com/document/940022119/Code-Abstraction the goat
 public abstract class Apparaat
 {
-    private int id;
-    private string naam;
-    private string locatie; // need to find something smarter for this.
-    private ApparaatStatus _apparaatStatus;
+
+    public int Id { get; private set; }
+    public string Naam { get; private set; } = "";
+    public string Locatie { get; private set; } = "";
+    public ApparaatStatus Status { get; private set; } = ApparaatStatus.Beschikbaar;
+
+    protected Apparaat() { }   // for EF Core
+
+    protected Apparaat(string naam, string locatie)
+    {
+        Naam = naam;
+        Locatie = locatie;
+    }
     
     /// <summary>
     /// CertificateRequired indicates a boolean that the user has a generic certificate needed to operate certain devices.
@@ -14,7 +23,7 @@ public abstract class Apparaat
     public virtual bool CertificateRequired => true; 
     public void changeStatus(ApparaatStatus newStatus)
     {
-        _apparaatStatus = newStatus;
+        Status = newStatus;
     }
     
 }

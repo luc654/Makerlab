@@ -2,7 +2,11 @@ namespace Makerlab.Domain.Apparaten;
 
 public class Snijder : Apparaat
 {
-    public decimal calculateCost(TimeOnly totalTime)
+    private Snijder() {}
+    
+    public Snijder(string naam, string locatie) : base (naam, locatie) {}
+    
+    public decimal calculateCost(TimeSpan totalTime)
     {
         throw new NotImplementedException();
     }
