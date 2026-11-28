@@ -1,6 +1,34 @@
-@page "/apparaten/view"
+@page "/apparaten"
+@using Makerlab.Infrastructure
+@using Makerlab.Domain.Apparaten
+@using Microsoft.EntityFrameworkCore
+@inject IDbContextFactory<MakerLabDBContext> DbFactory
 
-<PageTitle>Makerlab</PageTitle>
+<h1>Apparaten</h1>
 
-<h1>Makerlab</h1>
-<p>We gaan een menu testen!</p>
+@if (apparaten is null)
+{
+    <p>Laden...</p>
+}
+else
+{
+    <table>
+        <thead><tr><th>Naam</th><th>Locatie</th><th>Status</th></tr></thead>
+        <tbody>
+        @foreach (var a in apparaten)
+        {
+            <tr><td>@a.Naam</td><td>@a.Locatie</td><td>@a.Status</td></tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Apparaat>? apparaten;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await using var db = await DbFactory.CreateDbContextAsync();
+        apparaten = await db.Apparaten.AsNoTracking().ToListAsync();
+    }
+}
