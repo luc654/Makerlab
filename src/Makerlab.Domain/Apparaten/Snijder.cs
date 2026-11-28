@@ -1,6 +1,9 @@
 namespace Makerlab.Domain.Apparaten;
 
-public class Snijder
+public class Snijder : Apparaat
 {
-    
+    public decimal calculateCost(TimeOnly totalTime)
+    {
+        throw new NotImplementedException();
+    }
 }
