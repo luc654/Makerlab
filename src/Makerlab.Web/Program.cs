@@ -1,5 +1,6 @@
 using Makerlab.Infrastructure;
 using Makerlab.Web.Components;
+using Microsoft.EntityFrameworkCore;
 
 
 DotNetEnv.Env.TraversePath().Load();
@@ -18,6 +19,14 @@ builder.Services.AddRazorComponents()
 
 var app = builder.Build();
 
+
+// Auto migrate and seed
+using (var scope = app.Services.CreateScope())
+{
+    var factory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<MakerLabDBContext>>();
+    using var db = factory.CreateDbContext();
+    db.Database.Migrate();
+}
 
 if (!app.Environment.IsDevelopment())
 {
