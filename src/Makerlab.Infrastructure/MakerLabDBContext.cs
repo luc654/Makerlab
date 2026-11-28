@@ -1,10 +1,28 @@
 using DotNetEnv;
+using Makerlab.Domain.Apparaten;
 using Microsoft.EntityFrameworkCore;
 
 namespace Makerlab.Infrastructure;
-
+// https://dev.to/auyeungdavid_2847435260/step-by-step-guide-build-a-crud-blazor-app-with-entity-framework-and-postgresql-3ccj
 public class MakerLabDBContext :DbContext
 {
     public MakerLabDBContext(DbContextOptions<MakerLabDBContext> options) : base(options) { }
 
+    public DbSet<Apparaat> Apparaats { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<Snijder>().HasData(
+            new
+            {
+                Id = 1,
+                Naam = "Lasersnijder 1",
+                Locatie = "Werkplaats A",
+                Status = ApparaatStatus.Beschikbaar
+            });
+            
+            
+
+    }
 }
