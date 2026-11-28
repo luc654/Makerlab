@@ -26,7 +26,11 @@ using (var scope = app.Services.CreateScope())
     var factory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<MakerLabDBContext>>();
     using var db = factory.CreateDbContext();
     db.Database.Migrate();
+    MainSeeder.Seed(db);
 }
+
+
+
 
 if (!app.Environment.IsDevelopment())
 {
