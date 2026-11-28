@@ -34,3 +34,10 @@ Thumbs.db
 *.env
 
 /src/Makerlab.Web/makerlab.db
+
+
+# SQLite (database + temporary files)
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
